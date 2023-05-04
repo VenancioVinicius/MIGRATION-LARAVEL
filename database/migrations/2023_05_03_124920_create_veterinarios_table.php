@@ -15,9 +15,10 @@ class CreateVeterinariosTable extends Migration
     {
         Schema::create('veterinarios', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
             $table->integer('crmv');
+            $table->string('nome');
             $table->unsignedBigInteger('especialidade_id')->references('id')->on('especialidades');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Especialidade;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class EspecialidadeController extends Controller
      */
     public function index()
     {
-        //
+        $dados = Especialidade::all();
+        return view ('especialidades.index', compact('dados'));
     }
 
     /**

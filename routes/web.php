@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('templates.main')->with('titulo', "");
+})->name('index');
+
+Route::resource('clientes', 'ClienteController');
+Route::resource('especialidades', 'EspecialidadeController');
+Route::resource('veterinarios', 'VeterinarioController');

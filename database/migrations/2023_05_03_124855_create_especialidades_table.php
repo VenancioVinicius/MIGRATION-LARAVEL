@@ -17,6 +17,7 @@ class CreateEspecialidadesTable extends Migration
             $table->id();
             $table->string('nome');
             $table->text('descricao');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

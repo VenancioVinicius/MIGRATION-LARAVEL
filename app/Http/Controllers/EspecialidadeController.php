@@ -36,7 +36,12 @@ class EspecialidadeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Especialidade::create([
+            'nome' => mb_strtoupper($request->nome, 'UTF-8'),
+            'descricao' => $request->descricao,
+        ]);
+
+        return redirect()->route('especialidades.index');
     }
 
     /**

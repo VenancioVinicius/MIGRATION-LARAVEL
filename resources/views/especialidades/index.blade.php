@@ -10,7 +10,7 @@
             <x-datalist 
                 title="Especialidade" 
                 crud="especialidades" 
-                :header="['id', 'nome', 'descrição', 'ações']" 
+                :header="['id', 'nome', 'descricao', 'ações']" 
                 :data="$dados"
                 :hide="[true, false, true, false]" 
             /> 

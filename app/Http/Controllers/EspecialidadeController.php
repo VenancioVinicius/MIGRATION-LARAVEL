@@ -86,6 +86,8 @@ class EspecialidadeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Especialidade::destroy($id);
+
+        return redirect()->route('especialidades.index');
     }
 }

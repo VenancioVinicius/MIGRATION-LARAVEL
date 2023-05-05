@@ -11,5 +11,5 @@ class Veterinario extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['crmv', 'nome', 'especialidade'];
+    protected $fillable = ['crmv', 'nome', 'especialidade_id'];
 }

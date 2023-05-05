@@ -40,8 +40,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{route('clientes.index')}}" class="dropdown-item">Clientes</a></li>
-                                <li><a href="{{route('veterinarios.index')}}" class="dropdown-item">Veterinários</a></li>
                                 <li><a href="{{route('especialidades.index')}}" class="dropdown-item">Especialidades</a></li>
+                                <li><a href="{{route('veterinarios.index')}}" class="dropdown-item">Veterinários</a></li>
                             </ul>
                         </li>
                         <li class="nav-item ps-2 me-3">

@@ -16,7 +16,6 @@ class Cliente extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('email')->unique();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Veterinario;
+use App\Models\Especialidade;
 
 class VeterinarioController extends Controller
 {
@@ -13,7 +15,8 @@ class VeterinarioController extends Controller
      */
     public function index()
     {
-        //
+        $dados = Veterinario::all();
+        return view ('veterinarios.index', compact('dados'));
     }
 
     /**
@@ -23,7 +26,8 @@ class VeterinarioController extends Controller
      */
     public function create()
     {
-        //
+        $dados_esp = Especialidade::all();
+        return view ('veterinarios.create', compact('dados_esp'));
     }
 
     /**
@@ -34,7 +38,13 @@ class VeterinarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Veterinario::create([
+            'nome' => mb_strtoupper($request->nome, 'UTF-8'),
+            'crmv' => $request->crmv,
+            'especialidade_id' => $request->especialidade_id,
+        ]);
+
+        return redirect()->route('veterinarios.index');
     }
 
     /**
@@ -79,6 +89,8 @@ class VeterinarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Veterinario::destroy($id);
+
+        return redirect()->route('veterinarios.index');
     }
 }

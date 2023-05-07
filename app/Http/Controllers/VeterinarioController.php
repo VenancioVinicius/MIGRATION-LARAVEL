@@ -66,7 +66,12 @@ class VeterinarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dados = Veterinario::find($id);
+        $dados_esp = Especialidade::all();
+
+        if(!isset($dados)) { return "<h1>ID: $id não encontrado!</h1>"; }
+
+        return view('veterinarios.edit', compact('dados', 'dados_esp')); 
     }
 
     /**
@@ -78,7 +83,19 @@ class VeterinarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $obj = Veterinario::find($id);
+
+        if(!isset($obj)) { return "<h1>ID: $id não encontrado!"; }
+
+        $obj->fill([
+            'nome' => mb_strtoupper($request->nome, 'UTF-8'),
+            'crmv' => $request->crmv,
+            'especialidade_id' => $request->especialidade_id,
+        ]);
+
+        $obj->save();
+
+        return redirect()->route('veterinarios.index');
     }
 
     /**

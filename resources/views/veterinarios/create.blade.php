@@ -37,16 +37,15 @@
         </div>
         <div class="row">
             <div class="col" >
-                <div class="form-floating mb-3">
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect01" color="#00FF00">Especialidade</label>
                     <select name="especialidade_id" class="form-control">
-                        <option>Select Item</option>
                         @foreach ($dados_esp as $key)
                             <option value="{{ $key->id }}">
                                 {{ $key->nome }}
                             </option>
                         @endforeach
                     </select>
-                    <label for="especialidade_id">Especialidade do Veterinário</label>
                 </div>
             </div>
         </div>
